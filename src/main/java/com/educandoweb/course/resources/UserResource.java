@@ -19,7 +19,7 @@ public class UserResource {
 		
 		List<User> listU = new ArrayList<>();
 		
-		listU.add(new User(1L, "Lucas Eduardo", "lesds2001@gmail.com", "999999", "12345678"));
+		listU.add(new User(1L, "Lucas Eduardo", "lesds2001@gmail.com", "999", "12345678"));
 		listU.add(new User(2L, "Ailla Almeida", "lesds2001@gmail.com", "999999", "12345678"));
 		listU.add(new User(3L, "Larah Raquel", "lesds2001@gmail.com", "999999", "12345678"));
 		return ResponseEntity.ok().body(listU);
