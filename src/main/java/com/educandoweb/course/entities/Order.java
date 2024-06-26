@@ -15,25 +15,26 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order")
-public class Order implements Serializable{
+public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant moment;
-	private OrderStatus orderstatus;
-	
+	private Integer orderstatus;
+
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
-	
-	public Order(){		
+
+	public Order() {
 	}
 
-	public Order(Long id, Instant moment,  User client) {
+	public Order(Long id, Instant moment, OrderStatus orderstatus, User client) {
 		this.id = id;
 		this.moment = moment;
+		setOrderstatus(orderstatus);
 		this.client = client;
 	}
 
@@ -54,11 +55,14 @@ public class Order implements Serializable{
 	}
 
 	public OrderStatus getOrderstatus() {
-		return orderstatus;
+		return OrderStatus.valueOf(orderstatus);
 	}
 
 	public void setOrderstatus(OrderStatus orderstatus) {
-		this.orderstatus = orderstatus;
+		if (orderstatus != null) {
+			this.orderstatus = orderstatus.getCode();
+		}
+
 	}
 
 	public User getClient() {
@@ -68,7 +72,5 @@ public class Order implements Serializable{
 	public void setClient(User client) {
 		this.client = client;
 	}
-	
-	
-	
+
 }
