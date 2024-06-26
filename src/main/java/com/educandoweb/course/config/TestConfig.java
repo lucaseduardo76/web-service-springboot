@@ -20,6 +20,7 @@ public class TestConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		User u1 = new User(null, "Lucas Eduardo", "maria@gmail.com", "988888888", "123456");
+
 		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 		
 		
