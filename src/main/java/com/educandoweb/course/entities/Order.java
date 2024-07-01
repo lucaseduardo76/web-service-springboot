@@ -1,4 +1,4 @@
-package com.educandoweb.course.entities;
+ package com.educandoweb.course.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
